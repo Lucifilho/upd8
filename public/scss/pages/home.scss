@@ -1,0 +1,56 @@
+@import "../variaveis.scss";
+
+
+.home{
+
+    .acessoRapido{
+
+        width: 100%;
+        display: flex;
+        gap: 150px;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+      
+        .acessoItem{
+          width: 100%;
+          max-width: 350px;
+          display: flex;
+          flex-direction: column;
+          gap: 50px;
+      
+          .linkItem{
+            width: 100%;
+            max-width: 450px;
+            padding: 50px;
+            display: flex;
+            gap: 25px;
+            background-color: $azulBtn;
+            border-radius: 10px;
+            align-items: center;
+            align-self: center;
+            justify-content: center;
+            color: $branco;
+      
+            &:hover{
+      
+              transform: scale(1.1);
+              background-color: $azulBtn;
+            }
+      
+          }
+      
+      
+      
+          a{
+      
+            font-size: $acessoRapido;
+            font-weight: bold;
+      
+      
+      
+          }
+        }
+      }
+}

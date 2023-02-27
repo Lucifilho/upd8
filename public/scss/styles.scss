@@ -1,3 +1,77 @@
+@import "pages/registrar";
+@import "main.scss";
+@import "pages/editar";
+@import "pages/consultar";
+@import "pages/home";
+@import "../scss/variaveis";
+
+
+
 body{
 
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin:0 auto;
+    padding: 0;
+    background-color: $branco;
+    width: 100%;
+    max-width: 1920px;
 }
+  
+  main, header, footer{
+  
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 1920px;
+  }
+  
+  li{
+  
+    list-style: none;
+  }
+  
+  h1,h2,h3,h4{
+  
+    padding: 0;
+    margin: 0;
+    font-size: $title;
+  }
+  
+  a{
+    text-decoration: none;
+  
+  }
+  
+
+  .roxo{
+
+    color: $roxo;
+  }
+ 
+  .azul{
+
+    color: $azulBtn;
+  }
+  
+  .fundoVermelho {
+    background-color: $vermelho;
+  }
+
+  .fundoVerde {
+    background-color: $verde;
+  }
+
+  
+  .container{
+  
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+ 

@@ -1,0 +1,49 @@
+@import "../scss/variaveis";
+
+header{
+
+
+    .container{
+    
+        img{
+
+            align-self: flex-start;
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+}
+
+main{
+
+    .container{
+        text-align: center;
+        
+        .msg{
+            padding: 15px;
+            font-size: $label;
+            color: $branco;
+            font-weight: bold;
+            background-color: $verde;
+        }
+        
+        
+    }
+}
+
+footer{
+    
+    position: fixed;
+    bottom: 0;
+    background-color: $cinza;
+
+
+    .container{
+        
+        
+        padding: 20px 50px;
+        font-size: $label;
+        font-weight: bold;
+        text-align: center;
+    }
+}

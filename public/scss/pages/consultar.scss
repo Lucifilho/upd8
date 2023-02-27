@@ -1,0 +1,210 @@
+@import "../variaveis.scss";
+
+.busca{
+
+    form{
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border: 2px solid black;
+        padding: 15px;
+        border-radius: 25px;
+
+        .row{
+
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+
+
+            
+            .grupo{
+            
+                align-items: center;
+                display: flex;
+                gap: 10px;
+                width: 100%;
+
+                .rad{
+
+                    display: flex;
+                    align-items: center;
+                    align-self: center;
+                    margin: 0;
+
+
+                }
+
+                .peq{
+
+                    max-width: 150px;
+                }
+
+                .med{
+
+                    max-width: 300px;
+                }
+
+                .grande{
+
+                    width: 100%;
+                    max-width: 400px;
+                }
+                label{
+                    
+                    font-size: $label;
+                    font-weight: bold;
+                }
+
+                input, select{
+
+                    font-size: $input;
+                    width: 100%;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 5px;
+                    font-weight: bold;
+        
+                    
+                }
+            }
+        }
+
+        .botoes{
+
+            display: flex;
+            gap: 20px;
+            align-self: flex-end;
+            padding-right: 150px;
+
+            button,input{
+
+                width: 100%;
+                max-width: 100px;
+                padding: 8px 10px;
+                font-size: $btn;
+                font-weight: bold;
+                border-radius: 5px;
+                border-style: none;
+            }
+
+            .azul{
+
+                background-color: $azulBtn;
+                color: $branco;
+            }
+
+            .cinza{
+
+                background-color: $cinzaBtn;
+                color: $preto;
+            }
+        }
+        
+    }
+
+    .resultado{
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        table{
+            
+            border-collapse: collapse;
+            tbody{
+
+               
+
+                tr{
+
+                    font-weight: bold;
+                    font-size: $label;
+
+
+                    td{
+                        border: 2px solid black;
+                        padding: 2px;
+                        text-align: center;
+
+                        a{
+                                
+                            padding: 12px 20px;
+                            border: none;
+                            color: $branco;
+                            font-size: $btn;
+                            width: 100%;
+
+
+                        }
+
+                        form{
+                            border: none;
+                            padding: 5px;
+                            margin: 0;
+
+                            button{
+                                
+                                padding: 12px 2px;
+                                border: none;
+                                color: $branco;
+                                font-size: $btn;
+                                width: 100%;
+                                font-weight: bold;
+
+
+
+                            }
+                            
+                        }
+                    }
+
+                    th{
+                        text-align: center;
+                        border: 2px solid black;
+                        padding: 10px 10px;
+                        color: $preto;
+                        background-color: $cinza;
+                    }
+                }
+            }
+        }
+
+        .navigation{
+
+            nav{
+                
+                .justify-between{
+                    
+                    display: none;
+                }
+
+                .hidden{
+
+                    display: flex;
+                    justify-content: center;
+                    gap: 50px;
+
+                    p.text-gray-700{
+                        
+                        display: none;
+                    }
+
+                   
+                
+                    .relative,svg{
+                        
+                        width: 100%;
+                        max-width: 25px;
+                        font-size: $label;
+                    }
+                }
+            }
+
+
+        }
+
+
+    }
+}
