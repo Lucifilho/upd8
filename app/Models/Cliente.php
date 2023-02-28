@@ -9,6 +9,17 @@ class Cliente extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cpf',
+        'nome',
+        'dataNasc',
+        'sexo',
+        'cidade',
+        'estado',
+        'endereco',
+
+    ];
+
     protected $casts = [
 
         'items' => 'array'

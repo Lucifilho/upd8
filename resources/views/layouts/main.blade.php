@@ -19,7 +19,7 @@
             
             <div class="container">
 
-                <img src="/imagens/logo.png" alt="logo" style="width: 300px;">
+                <a href="/"><img src="/imagens/logo.png" alt="logo" style="width: 300px;"></a>
 
             </div>
         </header>

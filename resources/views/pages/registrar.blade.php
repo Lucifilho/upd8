@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="container">
 
     <div class="registro">
 
@@ -37,7 +36,7 @@
                 <div class="grupo">
 
                     <label for="dataNasc">Data de nascimento:</label>
-                    <input class="peq" type="date" name="dataNasc" id="dataNasc">
+                    <input class="peq"  type="date" name="dataNasc" id="dataNasc">
                 </div>
 
                 <div class="grupo">
@@ -60,50 +59,31 @@
 
                 <div class="grupo">
 
+                    
                     <label for="convenio">Estado:</label>
                     <select class="med" name="estado" id="estado">
 
-                        <option value="">Selecione</option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espirito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
+                    @foreach($estados as $estado)
 
+                        <option value="{{$estado -> sigla}}">{{$estado -> nome}}</option>
+
+                    @endforeach
                     </select>
                 </div>
 
                 <div class="grupo">
 
+
                     <label for="cidade">Cidade:</label>
                     <select class="med" name="cidade" id="cidade">
 
-                        <option class="value" value="Rio de janeiro">Rio de janeiro</option>
-                        <option class="value" value="São Tomé">São Tomé</option>
-                        <option class="value" value="São Paulo">São Paulo</option>
-                        <option class="value" value="Outro">Outra</option>
+                        @foreach($cidades as $cidade)
+
+                        $link = rj/distritos;
+                    
+                         <option value="{{$cidade -> nome}}">{{$cidade -> nome}}</option> 
+
+                        @endforeach
 
 
                     </select>                        
@@ -115,9 +95,9 @@
 
             <div class="botoes">
 
-                <input type="submit" value="Salvar">
+                <input class="azul" type="submit" value="Salvar">
 
-                <button class="cinza" href="busca.php">Limpar</button>
+                <button class="cinza" href="#">Limpar</button>
 
             </div>
 
@@ -125,8 +105,5 @@
         </form>
         
     </div>
-
-</div>
-
-
+    
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Cliente;
 
+
 class EventController extends Controller
 {
 
@@ -13,9 +14,10 @@ class EventController extends Controller
     public function main(){
 
 
-        return view('/pages/home',);
+        return view('pages.home');
 
     }
+
 
     public function busca(){
 
@@ -27,8 +29,6 @@ class EventController extends Controller
         $sexo = request('sexo');
         $endereco = request('endereco');
         $nome = request('nome');
-
-
 
         
 
@@ -107,23 +107,70 @@ class EventController extends Controller
                 $search = $endereco;
             }
         }else{
-        echo "nada";
-        
+       
         $search = $cpf;
         $clientes = Cliente::paginate(5);
 
 
         }
 
+        /** captação da url para as cidade, URL coletada do IBGE */
 
-        return view('pages/search',['clientes' => $clientes, 'search'=>$search]);
+        $urlEstados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+        $dadosEstados = file_get_contents($urlEstados);
+        $dadosEstados =str_replace('},
+
+        ]',"}
+
+        ]",$dadosEstados);
+        $estados = json_decode($dadosEstados);      
+
+       
+
+        $link = "sp";
+
+        $urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'.$link.'/distritos';
+        $dadosCidade = file_get_contents($urlCidades);
+        $dadosCidade=str_replace('},
+
+        ]',"}
+
+        ]",$dadosCidade);
+        $cidades = json_decode($dadosCidade);
+
+        return view('pages.search',['clientes' => $clientes, 'search'=>$search, 'estados'=> $estados ,'cidades'=> $cidades, 'link'=> $link]);
+
 
     }
 
     public function create(){
 
+        /** captação da url para os estados, URL coletada do IBGE */
 
-        return view('pages.registrar');
+        
+        $urlEstados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+        $dadosEstados = file_get_contents($urlEstados);
+        $dadosEstados =str_replace('},
+
+        ]',"}
+
+        ]",$dadosEstados);
+        $estados = json_decode($dadosEstados);      
+
+       
+
+        $link = "";
+
+        $urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/rj/distritos';
+        $dadosCidade = file_get_contents($urlCidades);
+        $dadosCidade=str_replace('},
+
+        ]',"}
+
+        ]",$dadosCidade);
+        $cidades = json_decode($dadosCidade);
+
+        return view('pages/registrar',['estados'=> $estados,'cidades'=> $cidades, 'link'=> $link]);
 
     }
 
@@ -151,13 +198,39 @@ class EventController extends Controller
 
         return redirect('/')-> with('msg','Cliente cadastrado com sucesso');
     }
-    
+
+
     public function edit($id){
 
+        /** captação da url para os estados e cidades, URL coletada do IBGE */
 
+
+        $urlEstados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+        $dadosEstados = file_get_contents($urlEstados);
+        $dadosEstados =str_replace('},
+
+        ]',"}
+
+        ]",$dadosEstados);
+        $estados = json_decode($dadosEstados);      
+
+       
+
+        $link = "";
+
+        $urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/rj/distritos';
+        $dadosCidade = file_get_contents($urlCidades);
+        $dadosCidade=str_replace('},
+
+        ]',"}
+
+        ]",$dadosCidade);
+        $cidades = json_decode($dadosCidade);
+
+  
         $cliente = Cliente::findOrFail($id);
 
-        return view('pages.editar', ['cliente'=> $cliente]);
+        return view('pages.editar', ['cliente'=> $cliente,'estados'=> $estados,'cidades'=> $cidades, 'link'=> $link]);
 
         return redirect('/')->with('msg','Cliente editado com sucesso');
 

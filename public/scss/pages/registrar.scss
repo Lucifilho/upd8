@@ -78,7 +78,7 @@
             align-self: flex-end;
             padding-right: 150px;
 
-            button{
+            button,input{
 
                 width: 100%;
                 max-width: 100px;
@@ -91,7 +91,7 @@
 
             .azul{
 
-                background-color: $azulBtn;
+                background-color: blue;
                 color: $branco;
             }
 

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table -> integer('cpf');
-            $table -> string('nome');
-            $table -> date('dataNasc');
-            $table -> string('sexo');
-            $table -> string('endereco');
-            $table -> string('estado');
-            $table -> string('cidade');
+            $table -> string('cpf')->nullable()->default(NULL);
+            $table -> string('nome')->nullable()->default(NULL);
+            $table -> date('dataNasc')->nullable()->default(NULL);;
+            $table -> string('sexo')->nullable()->default(NULL);;
+            $table -> string('endereco')->nullable()->default(NULL);;
+            $table -> string('estado')->nullable()->default(NULL);;
+            $table -> string('cidade')->nullable()->default(NULL);;
             $table->timestamps();
         });
     }
