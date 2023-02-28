@@ -15,9 +15,7 @@
                 <a class="linkItem" href="pages/buscar">Buscar Cliente </a>
             </li>
 
-            <li class="acessoItem">
-                <a class="linkItem" href="pages/ola">Ola </a>
-            </li>
+    
 
         </ul>
         
