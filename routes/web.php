@@ -26,10 +26,6 @@ Route::delete('pages/excluir/{id}', [EventController::class,'destroy']);
 
 
 
-Route::get('pages/registrar', [RotasController::class,'locais']);
-Route::get('pages/editar', [RotasController::class,'locais']);
-
-
 
 
 
