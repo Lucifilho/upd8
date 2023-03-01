@@ -66,7 +66,7 @@ class EventController extends Controller
 
                 $clientes = Cliente::where([
                     ['cpf','like','%'.$cpf.'%'  ]
-                ])->paginate(5);
+                ])->paginate(4);
                 $search = $cpf;
             }
             
@@ -74,7 +74,7 @@ class EventController extends Controller
 
                 $clientes = Cliente::where([
                     ['nome','like','%'.$nome.'%'  ]
-                ])->paginate(5);
+                ])->paginate(4);
                 $search = $nome;
             }
             
@@ -82,7 +82,7 @@ class EventController extends Controller
 
                 $clientes = Cliente::where([
                     ['dataNasc','like','%'.$dataNasc.'%'  ]
-                ])->paginate(5);
+                ])->paginate(4);
 
                 $data = $dataNasc ;
                 $data_str= strtotime($data);
@@ -95,7 +95,7 @@ class EventController extends Controller
 
                 $clientes = Cliente::where([
                     ['estado','like','%'.$estado.'%'  ]
-                ])->paginate(5);
+                ])->paginate(4);
                 $search = $estado;
             }
 
@@ -105,7 +105,7 @@ class EventController extends Controller
 
                     $clientes = Cliente::where([
                         ['sexo','like','%'.$sexo.'%'  ]
-                    ])->paginate(5);
+                    ])->paginate(4);
                     $search = $sexo;
                 }else{
 
@@ -113,18 +113,18 @@ class EventController extends Controller
 
                     $clientes = Cliente::where([
                         ['sexo','like','%'.$sexo.'%'  ]
-                    ])->paginate(5);
+                    ])->paginate(4);
                     $search = $sexo;
                     
                 }
 
                
             }            
-            if($cidade != "" ){
+            if($cidade != "" && $cpf=="" ){
 
                 $clientes = Cliente::where([
                     ['cidade','like','%'.$cidade.'%'  ]
-                ])->paginate(5);
+                ])->paginate(4);
                 $search = $cidade;  
             }
             
@@ -132,13 +132,13 @@ class EventController extends Controller
 
                 $clientes = Cliente::where([
                     ['endereco','like','%'.$endereco.'%'  ]
-                ])->paginate(5);
+                ])->paginate(4);
                 $search = $endereco;
             }
         }else{
        
         $search = $cpf;
-        $clientes = Cliente::paginate(5);
+        $clientes = Cliente::paginate(4);
 
 
         }
