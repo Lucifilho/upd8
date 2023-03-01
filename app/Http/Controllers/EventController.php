@@ -30,6 +30,35 @@ class EventController extends Controller
         $endereco = request('endereco');
         $nome = request('nome');
 
+        /** captação da url para as cidade, URL coletada do IBGE */
+
+         
+        $urlEstados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+        $dadosEstados = file_get_contents($urlEstados);
+        $dadosEstados =str_replace('},
+
+        ]',"}
+
+        ]",$dadosEstados);
+        $estados = json_decode($dadosEstados);
+        
+                
+   
+        
+
+
+        
+        $link = "rj/distritos";
+
+        $urlCidades = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/rj/distritos";
+        $dadosCidade = file_get_contents($urlCidades);
+        $dadosCidade=str_replace('},
+
+
+        ]',"}
+
+        ]",$dadosCidade);
+        $cidades = json_decode($dadosCidade);
         
 
         if( $cpf != "" or  $nome != "" or $dataNasc != "" or  $estado != "" or $cidade != "" or $endereco != "" or $nome != "" ){
@@ -114,32 +143,9 @@ class EventController extends Controller
 
         }
 
-        /** captação da url para as cidade, URL coletada do IBGE */
+        
 
-        $urlEstados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
-        $dadosEstados = file_get_contents($urlEstados);
-        $dadosEstados =str_replace('},
-
-        ]',"}
-
-        ]",$dadosEstados);
-        $estados = json_decode($dadosEstados);      
-
-       
-
-        $link = "sp";
-
-        $urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'.$link.'/distritos';
-        $dadosCidade = file_get_contents($urlCidades);
-        $dadosCidade=str_replace('},
-
-        ]',"}
-
-        ]",$dadosCidade);
-        $cidades = json_decode($dadosCidade);
-
-        return view('pages.search',['clientes' => $clientes, 'search'=>$search, 'estados'=> $estados ,'cidades'=> $cidades, 'link'=> $link]);
-
+        return view('pages.search',['clientes' => $clientes, 'urlCidades' => $urlCidades , 'search'=>$search, 'estados'=> $estados ,'cidades'=> $cidades, 'link'=> $link,]);
 
     }
 
@@ -170,7 +176,7 @@ class EventController extends Controller
         ]",$dadosCidade);
         $cidades = json_decode($dadosCidade);
 
-        return view('pages/registrar',['estados'=> $estados,'cidades'=> $cidades, 'link'=> $link]);
+        return view('pages.registrar',['estados'=> $estados,'cidades'=> $cidades, 'link'=> $link]);
 
     }
 

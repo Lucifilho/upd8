@@ -59,17 +59,24 @@
 
                 <div class="grupo">
 
+                   
                     
                     <label for="convenio">Estado:</label>
                     <select class="med" name="estado" id="estado">
+                    
+
 
                     @foreach($estados as $estado)
 
+                       
                         <option value="{{$estado -> sigla}}">{{$estado -> nome}}</option>
-
+                       
+                        
                     @endforeach
                     </select>
                 </div>
+
+              
 
                 <div class="grupo">
 
@@ -79,7 +86,8 @@
 
                         @foreach($cidades as $cidade)
 
-                        $link = rj/distritos;
+                       
+
                     
                          <option value="{{$cidade -> nome}}">{{$cidade -> nome}}</option> 
 
@@ -105,5 +113,5 @@
         </form>
         
     </div>
-    
+
 @endsection

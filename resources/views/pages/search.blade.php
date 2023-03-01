@@ -5,7 +5,7 @@
 
     <div class="busca">
         
-        <form action="/pages" method="GET">
+        <form action="/pages/search" method="get">
             
             <div class="text">
                 <h1 class="title roxo">Consulta Cliente</h3>
@@ -67,12 +67,13 @@
 
                                         <option value="{{$estado -> sigla}}">{{$estado->nome }}</option>
 
-                                    @endforeach
-                                       
-                                       
-                
+                                    @endforeach                                  
+
                                     </select>
+
                                 </div>
+
+                                                    
                 
                                 <div class="grupo">
                 
@@ -81,10 +82,11 @@
                                         
                                     @foreach($cidades as $cidade)
 
-
-                                        <option value="{{$cidade -> nome}}">{{$cidade -> nome}}</option>
+                                       <option value="{{$cidade -> nome}}">{{$cidade -> nome}}</option>
 
                                     @endforeach
+                                    <option value="0">ola</option>
+
                 
                 
                                     </select>                        
@@ -98,7 +100,7 @@
                 
                                 <input class="azul" type="submit" value="Pesquisar">
                 
-                                <button class="cinza" href="busca.php">Limpar</button>
+                                <button class="cinza" href="#">Limpar</button>
                 
                             </div>
 
